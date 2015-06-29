@@ -1,4 +1,4 @@
-/*! iScroll v5.1.3 ~ (c) 2008-2014 Matteo Spinelli ~ http://cubiq.org/license */
+/*! iScroll v5.1.3 ~ (c) 2008-2015 Matteo Spinelli ~ http://cubiq.org/license */
 (function (window, document, Math) {
 var rAF = window.requestAnimationFrame	||
 	window.webkitRequestAnimationFrame	||
@@ -247,7 +247,7 @@ var utils = (function () {
 
 function IScroll (el, options) {
 	this.wrapper = typeof el == 'string' ? document.querySelector(el) : el;
-	this.scroller = this.wrapper.children[0];
+	this.scroller = options.scroller || this.wrapper.children[0];
 	this.scrollerStyle = this.scroller.style;		// cache style for better performance
 
 	this.options = {
@@ -1618,7 +1618,7 @@ function createDefaultScrollbar (direction, interactive, type) {
 function Indicator (scroller, options) {
 	this.wrapper = typeof options.el == 'string' ? document.querySelector(options.el) : options.el;
 	this.wrapperStyle = this.wrapper.style;
-	this.indicator = this.wrapper.children[0];
+	this.indicator = options.scroller || this.wrapper.children[0];
 	this.indicatorStyle = this.indicator.style;
 	this.scroller = scroller;
 

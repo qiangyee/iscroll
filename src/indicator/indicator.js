@@ -38,7 +38,7 @@ function createDefaultScrollbar (direction, interactive, type) {
 function Indicator (scroller, options) {
 	this.wrapper = typeof options.el == 'string' ? document.querySelector(options.el) : options.el;
 	this.wrapperStyle = this.wrapper.style;
-	this.indicator = this.wrapper.children[0];
+	this.indicator = options.scroller || this.wrapper.children[0];
 	this.indicatorStyle = this.indicator.style;
 	this.scroller = scroller;
 
